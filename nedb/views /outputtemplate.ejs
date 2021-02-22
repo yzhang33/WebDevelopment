@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title> Mood Color</title>
+    </head>
+<body>
+    <h1>Your Mood and Diary:</h1>
+    <% 
+    if (data.length > 0) { 
+     for (var i=0;i<data.length;i++){ 
+    %>
+        <div id="mood<%= i %>" style="font-size:32px;color: <%= data[i].color %>"><a href="/displayrecord?_id=<%= data[i]._id%>"><%= data[i].mood%></a></div>
+
+    <% 
+        } 
+    }
+    %> 
+    <form method="POST" action="/formdata">
+            <label for="data"> Enter Your Mood:</label>
+            <input type="text" name="mood" value="Enter Mood">
+            <input type="color" name="color">
+            <input type="submit" name="submit" value="Submit">
+    </form>
+</body>
+</html>
+    
